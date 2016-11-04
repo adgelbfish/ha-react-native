@@ -18,6 +18,7 @@ export default class Settings extends Component {
                     <ListItem itemDivider>
                         <Text>Server Info</Text>
                     </ListItem>
+
                     <ListItem>
                         <InputGroup>
                             <Input inlineLabel label="Address" placeholder='Tap to enter the url of your server'/>
