@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import * as reducers from '../reducers';
-import HomeAssistantApp from './HomeAssistantApp'
+import HomeAssistantApp from './SettingsApp'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 

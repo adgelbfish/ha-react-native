@@ -8,6 +8,13 @@ export function updateUrlState(url) {
     };
 }
 
+export function updatePasswordState(pass) {
+    return {
+        type: types.UPDATE_PASSWORD_STATE,
+        value: pass
+    };
+}
+
 export function saveSettings() {
     return {
         type: types.SAVE_SETTINGS

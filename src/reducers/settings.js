@@ -1,15 +1,21 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-    serverUrl: 0
+    serverUrl: "",
+    password: ""
 };
 
-export default function counter(state = initialState, action = {}) {
+export default function settings(state = initialState, action = {}) {
     switch (action.type) {
         case types.UPDATE_URL_STATE:
             return {
                 ...state,
                 serverUrl: action.value
+            };
+        case types.UPDATE_PASSWORD_STATE:
+            return {
+                ...state,
+                password: action.value
             };
         case types.SAVE_SETTINGS:
             //TODO save all settings on device storage

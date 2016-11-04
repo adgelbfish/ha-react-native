@@ -6,7 +6,7 @@ import Settings from '../components/Settings';
 import * as counterActions from '../actions/settingsActions';
 import { connect } from 'react-redux';
 
-class HomeAssistantApp extends Component {
+class SettingsApp extends Component {
     constructor(props) {
         super(props);
     }
@@ -22,9 +22,9 @@ class HomeAssistantApp extends Component {
 }
 
 export default connect(state => ({
-        state: state.counter
+        state: state.settings
     }),
     (dispatch) => ({
         actions: bindActionCreators(counterActions, dispatch)
     })
-)(HomeAssistantApp);
+)(SettingsApp);
