@@ -5,12 +5,8 @@ import {InputGroup, Input, List, ListItem, Text} from 'native-base';
 import MainTemplate from './MainTemplate'
 
 export default class Settings extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        const {url} = this.props;
+        const {serverUrl} = this.props;
 
         return (
             <MainTemplate>
@@ -21,13 +17,13 @@ export default class Settings extends Component {
 
                     <ListItem>
                         <InputGroup>
-                            <Input inlineLabel label="Address" placeholder='Tap to enter the url of your server'/>
+                            <Input inlineLabel label="ADDRESS" placeholder='Tap to enter the url of your server'/>
                         </InputGroup>
                     </ListItem>
 
                     <ListItem>
                         <InputGroup>
-                            <Input inlineLabel label="Password" placeholder='Tap to enter your password'/>
+                            <Input inlineLabel label="PASSWORD" placeholder='Tap to enter your password'/>
                         </InputGroup>
                     </ListItem>
                 </List>
