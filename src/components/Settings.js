@@ -5,6 +5,13 @@ import {InputGroup, Input, List, ListItem, Text, Button} from 'native-base';
 import MainTemplate from './MainTemplate'
 
 export default class Settings extends Component {
+
+    constructor(props) {
+        super(props);
+        const {retrieveSettings} = this.props;
+        retrieveSettings();
+    }
+
     render() {
         const {serverUrl, updateUrlState, updatePasswordState} = this.props;
 
