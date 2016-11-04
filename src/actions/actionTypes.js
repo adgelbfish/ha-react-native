@@ -1,2 +1,3 @@
 export const UPDATE_URL_STATE = 'UPDATE_URL_STATE';
-export const SET_URL = 'SET_URL';
+export const SAVE_SETTINGS = 'SAVE_SETTINGS';
+export const RETRIEVE_SETTINGS = 'RETRIEVE_SETTINGS'

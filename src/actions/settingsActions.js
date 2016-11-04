@@ -8,8 +8,14 @@ export function updateUrlState(url) {
     };
 }
 
-export function setUrl() {
+export function saveSettings() {
     return {
-        type: types.SET_URL
+        type: types.SAVE_SETTINGS
+    };
+}
+
+export function retrieveSettings() {
+    return {
+        type: types.RETRIEVE_SETTINGS
     };
 }

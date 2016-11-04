@@ -1,6 +1,6 @@
 'use strict';
-import React, { Component } from 'react'
-import {InputGroup, Input, Text} from 'native-base';
+import React, {Component} from 'react'
+import {InputGroup, Input, List, ListItem, Text} from 'native-base';
 
 import MainTemplate from './MainTemplate'
 
@@ -14,13 +14,22 @@ export default class Settings extends Component {
 
         return (
             <MainTemplate>
-                <Text>Server Info:</Text>
-                <InputGroup>
-                    <Input placeholder='Tap to enter the url of your server'/>
-                </InputGroup>
-                <InputGroup>
-                    <Input placeholder='Tap to enter your password'/>
-                </InputGroup>
+                <List>
+                    <ListItem itemDivider>
+                        <Text>Server Info</Text>
+                    </ListItem>
+                    <ListItem>
+                        <InputGroup>
+                            <Input inlineLabel label="Address" placeholder='Tap to enter the url of your server'/>
+                        </InputGroup>
+                    </ListItem>
+
+                    <ListItem>
+                        <InputGroup>
+                            <Input inlineLabel label="Password" placeholder='Tap to enter your password'/>
+                        </InputGroup>
+                    </ListItem>
+                </List>
             </MainTemplate>
         );
     }
