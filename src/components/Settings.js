@@ -38,7 +38,7 @@ export default class Settings extends Component {
                         </InputGroup>
                     </ListItem>
                 </List>
-                        <Button block> Save Settings </Button>
+                <Button block> Save Settings </Button>
             </MainTemplate>
         );
     }
