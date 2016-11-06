@@ -7,13 +7,13 @@ import MainTemplate from './MainTemplate'
 export default class Settings extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
         const {retrieveSettings} = this.props;
         retrieveSettings();
     }
 
     render() {
-        const {serverUrl, updateUrlState, updatePasswordState} = this.props;
+        const {serverUrl, updateUrlState, updatePasswordState, storeSettings} = this.props;
 
         return (
             <MainTemplate>
@@ -29,6 +29,7 @@ export default class Settings extends Component {
                                 label="ADDRESS"
                                 placeholder='Tap to enter the url of your server'
                                 onChangeText={(text) => updateUrlState(text)}
+                                value={serverUrl}
                             />
                         </InputGroup>
                     </ListItem>
@@ -45,7 +46,19 @@ export default class Settings extends Component {
                         </InputGroup>
                     </ListItem>
                 </List>
-                <Button block> Save Settings </Button>
+
+                <Button
+                    block
+                    onPress={() => {
+                        storeSettings({
+                            password: this.props.password,
+                            serverUrl
+                        })
+                    }}
+                >
+                    Save Settings
+                </Button>
+
             </MainTemplate>
         );
     }
