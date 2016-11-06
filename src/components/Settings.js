@@ -1,4 +1,5 @@
 'use strict';
+
 import React, {Component} from 'react'
 import {InputGroup, Input, List, ListItem, Text, Button} from 'native-base';
 
