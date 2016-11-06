@@ -1,3 +1,5 @@
+'use strict';
+
 import * as types from '../actions/actionTypes';
 import {SAVE_STATUS_UNKNOWN} from '../util/constants'
 

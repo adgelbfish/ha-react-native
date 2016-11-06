@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 export const SAVE_STATUS_SUCCESSFUL = 'SAVE_STATUS_SUCCESSFUL';
 export const SAVE_STATUS_ERROR = 'SAVE_STATUS_ERROR';
