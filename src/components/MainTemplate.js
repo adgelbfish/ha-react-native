@@ -16,13 +16,13 @@ export default class MainTemplate extends Component {
             <Container>
                 <Header>
                     <Button transparent>
-                        <Icon name='ios-arrow-back'/>
+                        <Icon name='md-arrow-back'/>
                     </Button>
 
                     <Title>Home Assistant - App Settings</Title>
 
                     <Button transparent>
-                        <Icon name='ios-menu'/>
+                        <Icon name='md-menu'/>
                     </Button>
                 </Header>
                 <Content>
