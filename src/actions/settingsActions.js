@@ -63,7 +63,8 @@ export function retrieveSettings() {
 
         return Promise.all(
             [
-                dispatch(retrieveSetting(SETTINGS_STORAGE_SERVER_URL_NAME))
+                dispatch(retrieveSetting(SETTINGS_STORAGE_SERVER_URL_NAME)),
+                dispatch(retrievePassword())
             ]
         )
             .then(
@@ -90,6 +91,18 @@ export function retrieveSetting(name) {
                         return
                 }
             })
+    }
+}
+
+export function retrievePassword() {
+    return function (dispatch) {
+        return Keychain.getGenericPassword()
+            .then(credentials =>
+                dispatch(updatePasswordState(credentials.password))
+            )
+            .catch(err =>
+                console.log(err)
+            )
     }
 }
 
