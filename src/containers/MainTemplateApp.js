@@ -20,8 +20,8 @@ class MainTemplateApp extends Component {
 }
 
 export default connect(
-    (state) => ({
-        state: state.mainTemplate
+    (state, ownProps) => ({
+        state: {...state.mainTemplate, ...ownProps}
     }),
     (dispatch) => ({
         actions: bindActionCreators(mainTemplateActions, dispatch)
