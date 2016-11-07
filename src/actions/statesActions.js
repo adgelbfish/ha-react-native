@@ -5,7 +5,7 @@ import {FETCH_STATE_REQUESTING, FETCH_STATE_RECEIVED} from '../util/constants'
 export function getStates(serverInfo) {
     return function (dispatch) {
         dispatch(gettingStates(FETCH_STATE_REQUESTING));
-        console.log('get states called')
+        console.log('get states called', serverInfo.serverUrl);
         return fetch(`${serverInfo.serverUrl}/api/states`, {headers: {'X-HA-access': serverInfo.password}})
             .then(res => res.json()
                 .then((json) => {
@@ -34,6 +34,7 @@ export function callService(serverInfo, domain, service, serviceData) {
     return function(dispatch) {
         return fetch(`${serverInfo.serverUrl}/api/services/${domain}/${service}`, {method: 'POST', body: JSON.stringify(serviceData), headers: {'X-HA-access': serverInfo.password}})
             .then(() => dispatch(getStates(serverInfo)))
+            .catch(err => console.log(err))
 
     }
 }
