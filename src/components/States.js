@@ -20,7 +20,7 @@ export default class States extends Component {
         if (validUrl.is_http_uri(serverUrl, true)) {
             getStates({serverUrl, password});
             console.log('getStates() called')
-        }else{
+        } else {
             console.log('invalid url supplied')
         }
     }
@@ -28,16 +28,14 @@ export default class States extends Component {
     render() {
         const {states} = this.props;
         console.log(states);
-        const cards = states.map(object =>
-            <Card key={object.entity_id}>
-                <CardItem header>
-                    <Text>{object.attributes.friendly_name || object.entity_id}</Text>
-                </CardItem>
-            </Card>
-        );
         return (
             <MainTemplateApp screenTitle={STATES_SCREEN_NAME}>
-                {cards}
+                {states ? states.map(object =>
+                    <Card key={object.entity_id}>
+                        <CardItem header>
+                            <Text>{object.attributes.friendly_name || object.entity_id}</Text>
+                        </CardItem>
+                    </Card>): undefined}
             </MainTemplateApp>
         )
     }
