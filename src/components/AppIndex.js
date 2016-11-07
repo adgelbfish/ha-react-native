@@ -8,6 +8,12 @@ import {NAVIGATION_PAGE_STATES, NAVIGATION_PAGE_SETTINGS} from '../util/constant
 
 
 export default class AppIndex extends Component {
+    constructor(props){
+        super(props);
+        const {retrieveSettings} = this.props;
+        retrieveSettings();
+    }
+
     render() {
         const {page} = this.props;
         const getPageToRender = function (desiredPage) {

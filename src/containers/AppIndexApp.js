@@ -3,16 +3,17 @@
 import React, {Component} from 'react';
 
 import AppIndex from '../components/AppIndex';
-import appIndex from '../reducers/appIndex'
+import * as appIndexActions from '../actions/appIndexActions'
+import * as settingsActions from '../actions/settingsActions'
 
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
 class AppIndexApp extends Component {
     render() {
-        const {state} = this.props;
+        const {state, actions} = this.props;
         return(
-            <AppIndex {...state}/>
+            <AppIndex {...state} {...actions}/>
         )
     }
 }
@@ -22,6 +23,9 @@ export default connect(
         state: {page: state.mainTemplate.page}
     }),
     (dispatch) => ({
-        actions: bindActionCreators(appIndex, dispatch)
+        actions: {
+            ...bindActionCreators(appIndexActions, dispatch),
+            ...bindActionCreators(settingsActions, dispatch)
+        }
     })
 )(AppIndexApp)
