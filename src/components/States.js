@@ -9,6 +9,8 @@ import {STATES_SCREEN_NAME, FETCH_STATE_REQUESTING} from '../util/constants'
 import validUrl from 'valid-url'
 
 import {Card, CardItem, Text} from 'native-base'
+import {Col, Grid} from 'react-native-easy-grid'
+import {Switch} from 'react-native'
 
 export default class States extends Component {
     constructor(props) {
@@ -30,14 +32,23 @@ export default class States extends Component {
         console.log(states);
         return (
             <MainTemplateApp screenTitle={STATES_SCREEN_NAME}>
-                {statesFetchStatus === FETCH_STATE_REQUESTING ? <Text>Loading...</Text>: undefined}
+                {statesFetchStatus === FETCH_STATE_REQUESTING ? <Text>Loading...</Text> : undefined}
                 {states ? states.map(object =>
                     <Card key={object.entity_id}>
                         <CardItem>
-                            <Text>{object.attributes.friendly_name || object.attributes.title || object.entity_id}</Text>
-                            <Text>{object.state}</Text>
+                            <Grid>
+                                <Col>
+                                    <Text>{object.attributes.friendly_name || object.attributes.title || object.entity_id}</Text>
+                                </Col>
+                                <Col>
+                                    <Text>{object.state}</Text>
+                                </Col>
+                                <Col>
+                                    <Switch value={object.state === 'on'}/>
+                                </Col>
+                            </Grid>
                         </CardItem>
-                    </Card>): undefined}
+                    </Card>) : undefined}
             </MainTemplateApp>
         )
     }
