@@ -10,7 +10,7 @@ See [https://facebook.github.io/react-native/docs/getting-started.html](https://
 
 After that, clone the project, cd into the project, and run:
 
-`npm install`
+`npm install` or, if you use yarn (it's as easy as `npm install -g yarn`): `yarn install`
 
 `react-native run-android`
 
