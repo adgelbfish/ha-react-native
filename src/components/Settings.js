@@ -3,7 +3,10 @@
 import React, {Component} from 'react'
 import {InputGroup, Input, List, ListItem, Text, Button} from 'native-base';
 
-import MainTemplate from './MainTemplate'
+import MainTemplateApp from '../containers/MainTemplateApp'
+
+import {SETTINGS_SCREEN_NAME} from '../util/constants'
+
 
 export default class Settings extends Component {
 
@@ -17,7 +20,7 @@ export default class Settings extends Component {
         const {serverUrl, updateUrlState, updatePasswordState, storeSettings} = this.props;
 
         return (
-            <MainTemplate>
+            <MainTemplateApp screenTitle={SETTINGS_SCREEN_NAME}>
                 <List>
                     <ListItem itemDivider>
                         <Text>Server Info:</Text>
@@ -41,7 +44,7 @@ export default class Settings extends Component {
                                 inlineLabel
                                 secureTextEntry
                                 label="PASSWORD"
-                                placeholder='Tap to enter your password'
+                                placeholder='Tap to enter or update your password'
                                 onChangeText={(text) => updatePasswordState(text)}
                             />
                         </InputGroup>
@@ -60,7 +63,7 @@ export default class Settings extends Component {
                     Save Settings
                 </Button>
 
-            </MainTemplate>
+            </MainTemplateApp>
         );
     }
 }

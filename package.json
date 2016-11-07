@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "remotedev-debugger"
   },
   "dependencies": {
     "native-base": "^0.5.11",
@@ -25,6 +26,9 @@
     "babel-preset-react-native": "1.9.0",
     "jest": "16.0.2",
     "jest-react-native": "16.0.0",
-    "react-test-renderer": "15.3.2"
+    "react-test-renderer": "15.3.2",
+    "remote-redux-devtools": "^0.5.2",
+    "remote-redux-devtools-on-debugger": "^0.6.3",
+    "remotedev-server": "^0.2.1"
   }
 }

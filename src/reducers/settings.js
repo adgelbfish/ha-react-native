@@ -24,11 +24,7 @@ export default function settings(state = initialState, action = {}) {
                 ...state,
                 password: action.value
             };
-        case types.LOAD_SETTINGS:
-            //TODO retrieve all settings from device storage
-            return {
-                ...state
-            };
+        //TODO add load state
         case types.SAVE_SETTINGS:
             return {
                 ...state,

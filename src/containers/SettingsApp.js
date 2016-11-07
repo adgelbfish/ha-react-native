@@ -3,16 +3,12 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import Settings from '../components/Settings';
-import * as counterActions from '../actions/settingsActions';
-import { connect } from 'react-redux';
+import * as settingsActions from '../actions/settingsActions';
+import {connect} from 'react-redux';
 
 class SettingsApp extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        const { state, actions } = this.props;
+        const {state, actions} = this.props;
         return (
             <Settings
                 {...state}
@@ -21,10 +17,11 @@ class SettingsApp extends Component {
     }
 }
 
-export default connect(state => ({
+export default connect(
+    (state) => ({
         state: state.settings
     }),
     (dispatch) => ({
-        actions: bindActionCreators(counterActions, dispatch)
+        actions: bindActionCreators(settingsActions, dispatch)
     })
 )(SettingsApp);
