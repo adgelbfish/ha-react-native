@@ -21,13 +21,13 @@ export default class MainTemplate extends Component {
                 <Footer>
                     <FooterTab>
                         <Button
-                            onPress={setNavigationPage(NAVIGATION_PAGE_STATES)}
+                            onPress={() => setNavigationPage(NAVIGATION_PAGE_STATES)}
                         >
                             States
                             <Icon name="md-apps" />
                         </Button>
                         <Button
-                            onPress={setNavigationPage(NAVIGATION_PAGE_SETTINGS)}
+                            onPress={() => setNavigationPage(NAVIGATION_PAGE_SETTINGS)}
                         >
                             Settings
                             <Icon name='md-settings'/>

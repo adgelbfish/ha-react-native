@@ -5,10 +5,11 @@ import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
+
 import * as reducers from '../reducers';
 import SettingsApp from './SettingsApp';
 import StatesApp from './StatesApp';
-
+import AppIndexApp from './AppIndexApp'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -21,7 +22,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <StatesApp />
+                <AppIndexApp />
             </Provider>
         );
     }

@@ -24,6 +24,6 @@ export default connect(
         state: state.mainTemplate
     }),
     (dispatch) => ({
-        actions: bindActionCreators(mainTemplateActions)
+        actions: bindActionCreators(mainTemplateActions, dispatch)
     })
 )(MainTemplateApp)

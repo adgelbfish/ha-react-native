@@ -11,7 +11,7 @@ export function getStates(serverInfo) {
             .then((res) => {
                 dispatch(addStatesToStore(res.json))
             })
-            .then(() => dispatch(gettingStates(FETCH_STATE_RECEIVED)))
+            .then(dispatch(gettingStates(FETCH_STATE_RECEIVED)))
             .catch(err =>  console.log(err))
     }
 }

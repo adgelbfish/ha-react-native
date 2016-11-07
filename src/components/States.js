@@ -15,8 +15,9 @@ export default class States extends Component {
 
     componentDidMount() {
         const {states, getStates} = this.props;
-        getStates({serverUrl: this.serverUrl, password: this.password});
-        console.log(states);
+        if (this.serverUrl) {
+            getStates({serverUrl: this.serverUrl, password: this.password});
+        }
     }
 
     render() {
