@@ -29,3 +29,11 @@ export function gettingStates(status) {
         value: status
     }
 }
+
+export function callService(serverInfo, domain, service, serviceData) {
+    return function(dispatch) {
+        return fetch(`${serverInfo.serverUrl}/api/services/${domain}/${service}`, {method: 'POST', body: JSON.stringify(serviceData), headers: {'X-HA-access': serverInfo.password}})
+            .then(() => dispatch(getStates(serverInfo)))
+
+    }
+}

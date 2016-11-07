@@ -28,12 +28,19 @@ export default class States extends Component {
     }
 
     render() {
-        const {states, statesFetchStatus} = this.props;
+        const {states, statesFetchStatus, callService, serverUrl, password} = this.props;
+        const serverInfo = {serverUrl, password}
         console.log(states);
         return (
             <MainTemplateApp screenTitle={STATES_SCREEN_NAME}>
                 {statesFetchStatus === FETCH_STATE_REQUESTING ? <Text>Loading...</Text> : undefined}
-                {states ? states.map(object =>
+                {states ? states.filter(object => {
+                    if (typeof object.entity_id === 'string') {
+                        return object.entity_id.split('.')[0] === 'switch'
+                    } else {
+                        return false
+                    }
+                }).map(object =>
                     <Card key={object.entity_id}>
                         <CardItem>
                             <Grid>
@@ -44,7 +51,7 @@ export default class States extends Component {
                                     <Text>{object.state}</Text>
                                 </Col>
                                 <Col>
-                                    <Switch value={object.state === 'on'}/>
+                                    <Switch value={object.state === 'on'} onValueChange={value => value ? callService(serverInfo, 'homeassistant', 'turn_on', {entity_id: object.entity_id}) : callService(serverInfo, 'homeassistant', 'turn_off', {entity_id: object.entity_id})}/>
                                 </Col>
                             </Grid>
                         </CardItem>

@@ -1,4 +1,4 @@
-package com.hareactnative;
+package com.adgelbfish.homeassistant;
 
 import android.app.Application;
 import android.util.Log;

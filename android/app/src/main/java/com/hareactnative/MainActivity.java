@@ -1,4 +1,4 @@
-package com.hareactnative;
+package com.adgelbfish.homeassistant;
 
 import com.facebook.react.ReactActivity;
 
