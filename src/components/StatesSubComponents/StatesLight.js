@@ -4,13 +4,14 @@ import React, {Component} from 'react'
 import {CardItem, Text} from 'native-base'
 import {Grid, Col} from 'react-native-easy-grid'
 import {Switch} from 'react-native'
-import {SERVICE_DOMAIN_HOME_ASSISTANT, SERVICE_ACTION_TURN_OFF, SERVICE_ACTION_TURN_ON} from '../../util/constants'
+import {SERVICE_DOMAIN_HOME_ASSISTANT} from "../../util/constants";
 
-export default class StatesSwitch extends Component {
+
+export default class StatesLight extends Component {
     render() {
         const {serverInfo, entity_id, attributes, callService} = this.props;
-        const switchState = this.props.state;
-        console.dir(switchState);
+        const lightState = this.props.state;
+        console.dir(lightState);
         return (
             <CardItem>
                 <Grid>
@@ -18,11 +19,11 @@ export default class StatesSwitch extends Component {
                         <Text>{attributes.friendly_name || entity_id}</Text>
                     </Col>
                     <Col>
-                        <Text>{switchState}</Text>
+                        <Text>{lightState}</Text>
                     </Col>
                     <Col>
-                        <Switch value={switchState === 'on'}
-                                onValueChange={value => value ? callService(serverInfo, SERVICE_DOMAIN_HOME_ASSISTANT, SERVICE_ACTION_TURN_ON, {entity_id: entity_id}) : callService(serverInfo, SERVICE_DOMAIN_HOME_ASSISTANT, SERVICE_ACTION_TURN_OFF, {entity_id: entity_id})}/>
+                        <Switch value={lightState === 'on'}
+                                onValueChange={value => value ? callService(serverInfo, SERVICE_DOMAIN_HOME_ASSISTANT, 'turn_on', {entity_id: entity_id}) : callService(serverInfo, SERVICE_DOMAIN_HOME_ASSISTANT, 'turn_off', {entity_id: entity_id})}/>
                     </Col>
                 </Grid>
             </CardItem>

@@ -21,3 +21,7 @@ export const FETCH_STATE_NONE = 'FETCH_STATE_NONE';
 
 export const NAVIGATION_PAGE_SETTINGS = 'SETTINGS';
 export const NAVIGATION_PAGE_STATES = 'STATES';
+
+export const SERVICE_DOMAIN_HOME_ASSISTANT = 'homeassistant';
+export const SERVICE_ACTION_TURN_ON = 'turn_on';
+export const SERVICE_ACTION_TURN_OFF= 'turn_off';
