@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 
 import MainTemplateApp from '../containers/MainTemplateApp'
 
-import {STATES_SCREEN_NAME} from '../util/constants'
+import {STATES_SCREEN_NAME, FETCH_STATE_REQUESTING} from '../util/constants'
 
 import validUrl from 'valid-url'
 
@@ -15,7 +15,7 @@ export default class States extends Component {
         super(props)
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const {getStates, serverUrl, password} = this.props;
         if (validUrl.is_http_uri(serverUrl, true)) {
             getStates({serverUrl, password});
@@ -26,14 +26,16 @@ export default class States extends Component {
     }
 
     render() {
-        const {states} = this.props;
+        const {states, statesFetchStatus} = this.props;
         console.log(states);
         return (
             <MainTemplateApp screenTitle={STATES_SCREEN_NAME}>
+                {statesFetchStatus === FETCH_STATE_REQUESTING ? <Text>Loading...</Text>: undefined}
                 {states ? states.map(object =>
                     <Card key={object.entity_id}>
-                        <CardItem header>
-                            <Text>{object.attributes.friendly_name || object.entity_id}</Text>
+                        <CardItem>
+                            <Text>{object.attributes.friendly_name || object.attributes.title || object.entity_id}</Text>
+                            <Text>{object.state}</Text>
                         </CardItem>
                     </Card>): undefined}
             </MainTemplateApp>
