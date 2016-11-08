@@ -1,18 +1,19 @@
 import * as types from './actionTypes'
 
 import {FETCH_STATE_REQUESTING, FETCH_STATE_RECEIVED} from '../util/constants'
+import {is_http_uri} from 'valid-url'
 
 export function getStates(serverInfo) {
     return function (dispatch) {
         dispatch(gettingStates(FETCH_STATE_REQUESTING));
         console.log('get states called', serverInfo.serverUrl);
-        return fetch(`${serverInfo.serverUrl}/api/states`, {headers: {'X-HA-access': serverInfo.password}})
+        return is_http_uri(serverInfo.serverUrl, true) ? fetch(`${serverInfo.serverUrl}/api/states`, {headers: {'X-HA-access': serverInfo.password}})
             .then(res => res.json()
                 .then((json) => {
                     dispatch(addStatesToStore(json))
                 }))
             .then(() => dispatch(gettingStates(FETCH_STATE_RECEIVED)))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err)) : Promise.all([])
     }
 }
 
