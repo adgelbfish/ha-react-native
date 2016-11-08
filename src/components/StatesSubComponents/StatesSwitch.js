@@ -10,7 +10,6 @@ export default class StatesSwitch extends Component {
     render() {
         const {serverInfo, entity_id, attributes, callService} = this.props;
         const switchState = this.props.state;
-        console.dir(switchState);
         return (
             <CardItem>
                 <Grid>

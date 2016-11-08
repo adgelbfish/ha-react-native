@@ -15,8 +15,8 @@ export default class Settings extends Component {
     }
 
     componentWillMount() {
-        const {retrieveSettings} = this.props;
-        retrieveSettings();
+        const {retrieveSettings, serverUrl, password} = this.props;
+        retrieveSettings()
     }
 
     render() {

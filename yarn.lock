@@ -4408,6 +4408,10 @@ redux-devtools-instrument@^1.3.1:
     lodash "^4.2.0"
     symbol-observable "^0.2.4"
 
+redux-observer:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redux-observer/-/redux-observer-1.0.0.tgz#0faa0b7e713c3c807b82d0c7316b228f0b475b3e"
+
 redux-thunk@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.1.0.tgz#c724bfee75dbe352da2e3ba9bc14302badd89a98"

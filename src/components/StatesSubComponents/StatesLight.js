@@ -11,7 +11,6 @@ export default class StatesLight extends Component {
     render() {
         const {serverInfo, entity_id, attributes, callService} = this.props;
         const lightState = this.props.state;
-        console.dir(lightState);
         return (
             <CardItem>
                 <Grid>
