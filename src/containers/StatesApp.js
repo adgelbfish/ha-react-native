@@ -10,14 +10,14 @@ import {connect} from 'react-redux';
 
 class StatesApp extends Component {
     render() {
-        const {state, actions} = this.props;
-        return (<States {...state.settings}{...state.states}{...actions}/>);
+        const {state, actions, ownProps} = this.props;
+        return (<States {...ownProps} {...state.settings}{...state.states}{...actions}/>);
     }
 }
 
 export default connect(
-    (state) => ({
-        state: {settings: state.settings, states: state.states}
+    (state, ownProps) => ({
+        state: {ownProps: ownProps, settings: state.settings, states: state.states}
     }),
     (dispatch) => ({
         actions: bindActionCreators(statesActions, dispatch)

@@ -5,26 +5,15 @@ import SettingsApp from '../containers/SettingsApp'
 import StatesApp from '../containers/StatesApp'
 import MainTemplateApp from '../containers/MainTemplateApp'
 import {NAVIGATION_PAGE_STATES, NAVIGATION_PAGE_SETTINGS} from '../util/constants'
-
+import {Scene, Router} from 'react-native-router-flux'
 
 export default class AppIndex extends Component {
-    componentDidMount(){
-        const {retrieveSettings, serverUrl, password, getStates} = this.props;
-        retrieveSettings();
-    }
-
     render() {
-        const {page} = this.props;
-        const getPageToRender = function (desiredPage) {
-            switch (desiredPage) {
-                case NAVIGATION_PAGE_SETTINGS:
-                    return (<SettingsApp/>);
-                case NAVIGATION_PAGE_STATES:
-                    return (<StatesApp/>);
-                default:
-                    return (<MainTemplateApp/>);
-            }
-        };
-        return (getPageToRender(page));
+        return <Router>
+            <Scene key="root">
+                <Scene key={NAVIGATION_PAGE_SETTINGS} component={SettingsApp} title="App Settings" hideNavBar animation='fade'/>
+                <Scene key={NAVIGATION_PAGE_STATES} component={StatesApp} title="States" hideNavBar animation='fade'/>
+            </Scene>
+        </Router>
     }
 }

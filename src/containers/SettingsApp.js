@@ -18,8 +18,8 @@ class SettingsApp extends Component {
 }
 
 export default connect(
-    (state) => ({
-        state: state.settings
+    (state, ownProps) => ({
+        state: {...state.settings, ...ownProps}
     }),
     (dispatch) => ({
         actions: bindActionCreators(settingsActions, dispatch)

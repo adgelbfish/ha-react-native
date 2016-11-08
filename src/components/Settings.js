@@ -20,7 +20,7 @@ export default class Settings extends Component {
     }
 
     render() {
-        const {serverUrl, updateUrlState, updatePasswordState, storeSettings} = this.props;
+        const {onlyRenderTemplate, serverUrl, updateUrlState, updatePasswordState, storeSettings} = this.props;
 
         return (
             <MainTemplateApp screenTitle={SETTINGS_SCREEN_NAME}>

@@ -20,8 +20,8 @@ class AppIndexApp extends Component {
 }
 
 export default connect(
-    (state) => ({
-        state: {...state.settings, page: state.mainTemplate.page}
+    (state, ownProps) => ({
+        state: {...ownProps, ...state.settings, page: state.mainTemplate.page}
     }),
     (dispatch) => ({
         actions: {

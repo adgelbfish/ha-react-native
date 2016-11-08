@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import observer from 'redux-observer'
 
 import * as reducers from '../reducers';
-import AppIndexApp from './AppIndexApp'
+import AppIndex from '../components/AppIndex'
 import {getStates} from '../actions/statesActions'
 
 const updateHandler = (nextState, previousState) => {
@@ -27,7 +27,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <AppIndexApp />
+                <AppIndex />
             </Provider>
         );
     }
