@@ -16,8 +16,6 @@ let source;
 
 const updateHandler = (nextState, previousState) => {
     if (nextState.settings.serverUrl !== previousState.settings.serverUrl) {
-        source = new EventSource(nextState.settings.serverUrl, returnPasswordHeaderIfPassword(nextState.settings.password));
-        source.onMessage = (event) => console.log(event);
         store.dispatch(getStates({serverUrl: nextState.settings.serverUrl, password: nextState.settings.password}))
     }
 };

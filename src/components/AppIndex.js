@@ -3,7 +3,6 @@
 import React, {Component} from 'react'
 import SettingsApp from '../containers/SettingsApp'
 import StatesApp from '../containers/StatesApp'
-import MainTemplateApp from '../containers/MainTemplateApp'
 import {NAVIGATION_PAGE_STATES, NAVIGATION_PAGE_SETTINGS} from '../util/constants'
 import {Scene, Router} from 'react-native-router-flux'
 

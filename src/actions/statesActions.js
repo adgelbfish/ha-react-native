@@ -5,7 +5,7 @@ import {is_http_uri} from 'valid-url'
 import {returnPasswordHeaderIfPassword} from '../util/httpFunctions'
 
 export function getStates(serverInfo) {
-    return function (dispatch) {
+    return (dispatch) => {
         dispatch(gettingStates(FETCH_STATE_REQUESTING));
         console.log('get states called', serverInfo.serverUrl);
         return is_http_uri(serverInfo.serverUrl, true) ? fetch(`${serverInfo.serverUrl}/api/states`, returnPasswordHeaderIfPassword(serverInfo.password))
@@ -33,7 +33,7 @@ export function gettingStates(status) {
 }
 
 export function callService(serverInfo, domain, service, serviceData) {
-    return function(dispatch) {
+    return (dispatch) => {
         return fetch(`${serverInfo.serverUrl}/api/services/${domain}/${service}`, {method: 'POST', body: JSON.stringify(serviceData), headers: {'X-HA-access': serverInfo.password}})
             .then(() => dispatch(getStates(serverInfo)))
             .catch(err => console.log(err))
