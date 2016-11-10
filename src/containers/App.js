@@ -6,12 +6,18 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import observer from 'redux-observer'
 
+
+import {returnPasswordHeaderIfPassword} from '../util/httpFunctions'
 import * as reducers from '../reducers';
 import AppIndex from '../components/AppIndex'
 import {getStates} from '../actions/statesActions'
 
+let source;
+
 const updateHandler = (nextState, previousState) => {
     if (nextState.settings.serverUrl !== previousState.settings.serverUrl) {
+        source = new EventSource(nextState.settings.serverUrl, returnPasswordHeaderIfPassword(nextState.settings.password));
+        source.onMessage = (event) => console.log(event);
         store.dispatch(getStates({serverUrl: nextState.settings.serverUrl, password: nextState.settings.password}))
     }
 };

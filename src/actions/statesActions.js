@@ -2,12 +2,13 @@ import * as types from './actionTypes'
 
 import {FETCH_STATE_REQUESTING, FETCH_STATE_RECEIVED} from '../util/constants'
 import {is_http_uri} from 'valid-url'
+import {returnPasswordHeaderIfPassword} from '../util/httpFunctions'
 
 export function getStates(serverInfo) {
     return function (dispatch) {
         dispatch(gettingStates(FETCH_STATE_REQUESTING));
         console.log('get states called', serverInfo.serverUrl);
-        return is_http_uri(serverInfo.serverUrl, true) ? fetch(`${serverInfo.serverUrl}/api/states`, {headers: {'X-HA-access': serverInfo.password}})
+        return is_http_uri(serverInfo.serverUrl, true) ? fetch(`${serverInfo.serverUrl}/api/states`, returnPasswordHeaderIfPassword(serverInfo.password))
             .then(res => res.json()
                 .then((json) => {
                     dispatch(addStatesToStore(json))
@@ -39,3 +40,4 @@ export function callService(serverInfo, domain, service, serviceData) {
 
     }
 }
+
